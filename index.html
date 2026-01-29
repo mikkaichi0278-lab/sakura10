@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>AR Test</title>
+    <title>AR Final Test</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   </head>
-
   <body style="margin: 0; overflow: hidden;">
     <a-scene
       vr-mode-ui="enabled: false;"
@@ -16,13 +15,16 @@
     >
       <a-box position="0 0 -5" scale="0.5 0.5 0.5" color="red"></a-box>
 
-     <a-nft type="nft" url="sakura" ...>
-  <a-box position="0 0 0" scale="100 100 100" color="green"></a-box>
-</a-nft>
+      <a-nft
+        type="nft"
+        url="https://mikkaichi0278-lab.github.io/sakura10/sakura"
+        smooth="true"
+      >
+        <a-box position="0 0 0" scale="200 200 200" color="green"></a-box>
+      </a-nft>
 
       <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
-
 
