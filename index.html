@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sakura AR - Right Corner Fixed</title>
+    <title>Sakura AR - Position Fix</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <style>
@@ -13,30 +13,6 @@
       }
       .arjs-loader div { text-align: center; font-size: 1.25em; color: white; }
     </style>
-    <script>
-      AFRAME.registerComponent('petal-particle', {
-        init: function () {
-          var el = this.el;
-          this.speed = (Math.random() * 0.5 + 0.5) * 0.15;
-          this.dirX = (Math.random() - 0.5) * 0.08;
-          this.rotSpeed = Math.random() * 3 + 1;
-          el.setAttribute('scale', '120 120 120');
-        },
-        tick: function () {
-          var pos = this.el.getAttribute('position');
-          pos.y -= this.speed;
-          pos.x += this.dirX;
-          if (pos.y < -400) { 
-            pos.y = 400; 
-            pos.x = (Math.random() - 0.5) * 600; 
-          }
-          this.el.setAttribute('position', pos);
-          var rot = this.el.getAttribute('rotation');
-          rot.y += this.rotSpeed;
-          this.el.setAttribute('rotation', rot);
-        }
-      });
-    </script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
@@ -44,7 +20,7 @@
 
     <a-scene
       vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true; precision: medium; antialias: false;"
+      renderer="logarithmicDepthBuffer: true; precision: medium;"
       embedded
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
     >
@@ -53,25 +29,18 @@
         url="https://mikkaichi0278-lab.github.io/sakura10/sakura"
         smooth="true"
         smoothCount="15"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-        minConfidence="0.6"
+        minConfidence="0.5"
       >
         <a-image
           src="butterfly.png"
-          position="-600 0 -400" 
+          position="-800 0 -300" 
           scale="500 500 500"
           rotation="-90 0 0"
         ></a-image>
-
-        <a-image src="petal.png" petal-particle position="-500 200 -300"></a-image>
-        <a-image src="petal.png" petal-particle position="-700 300 -450"></a-image>
-        <a-image src="petal.png" petal-particle position="-400 150 -200"></a-image>
-        <a-image src="petal.png" petal-particle position="-800 250 -400"></a-image>
-
       </a-nft>
 
       <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
+
